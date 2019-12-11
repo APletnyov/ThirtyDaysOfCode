@@ -14,13 +14,25 @@ class Node {
 
 class Solution {
 
-    public static  Node insert(Node head,int data) {
+    public static Node insert(Node head, int data) {
 
         Node newNode = new Node(data);
 
-        head.next    = newNode;
+        if (head == null) {
 
-        return newNode;
+            return newNode;
+
+        } else if (head.next == null) {
+
+            head.next = newNode;
+
+        } else {
+
+            insert(head.next, data);
+
+        }
+
+        return head;
 
     }
 
